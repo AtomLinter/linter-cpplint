@@ -1,0 +1,16 @@
+{
+  "name": "linter-cpplint",
+  "linter-package": true,
+  "main": "./lib/init",
+  "version": "0.0.1",
+  "description": "Atom linter plugin for c++, using cpplint.",
+  "activationEvents": [],
+  "repository": "https://github.com/Nathan-Smith/linter-cpplint",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "node-cpplint": "~0.1.5"
+  }
+}
