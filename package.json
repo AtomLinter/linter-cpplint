@@ -3,7 +3,7 @@
   "linter-package": true,
   "main": "./lib/init",
   "version": "0.0.2",
-  "description": "Atom linter plugin for c++, using cpplint.",
+  "description": "Linter plugin for c++, using cpplint.",
   "activationEvents": [],
   "repository": "https://github.com/Nathan-Smith/linter-cpplint",
   "license": "MIT",
