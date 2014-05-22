@@ -11,6 +11,6 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "node-cpplint": "~0.1.5"
+    "node-cpplint": "git://github.com/Nathan-Smith/node-cpplint.git#5df2378aa4c68887fb772f58aa4a5acadbd3128c"
   }
 }

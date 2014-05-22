@@ -1,5 +1,6 @@
 linterPath = atom.packages.getLoadedPackage("linter").path
 Linter = require "#{linterPath}/lib/linter"
+path = require 'path'
 
 class LinterCpplint extends Linter
   # The syntax that the linter handles. May be a string or
@@ -8,14 +9,13 @@ class LinterCpplint extends Linter
 
   # A string, list, tuple or callable that returns a string, list or tuple,
   # containing the command line (with arguments) used to lint.
-  cmd: 'cpplint'
+  cmd: 'cpplint --extensions=c++ --reporter=plain-text'
 
   linterName: 'cpplint'
 
   # A regex pattern used to extract information from the executable's output.
 
-  #/home/android.h:4:  Include the directory when naming .h files  [build/include] [4]
-  regex: '\\D+(?<line>\\d+):\\s+(?<message>.+)\\n'
+  regex: '[^:]+:(?<line>\\d+):\\s+(?<message>.*)'
 
   defaultLevel: 'warning'
 
@@ -24,14 +24,20 @@ class LinterCpplint extends Linter
   constructor: (editor) ->
     super(editor)
 
-    console.log 'constructor linter-cpplint'
-
     atom.config.observe 'linter-cpplint.cpplintExecutablePath', @formatShellCmd
 
+
   formatShellCmd: =>
-    cpplintExecutablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
-    console.log cpplintExecutablePath
+    # TODO: Fix up atom.config
+    cpplintExecutablePath = path.join __dirname, '..', 'node_modules', 'node-cpplint', 'bin' #atom.config.get 'linter-cpplint.cpplintExecutablePath'
+    console.log "cpplintExecutablePath", cpplintExecutablePath
     @executablePath = "#{cpplintExecutablePath}"
+
+  # Private: cpplint outputs line 0 for some errors. This needs to be changed to
+  # line 1 otherwise it will break.
+  createMessage: (match) ->
+    match.line = if match.line > 0 then match.line else 1
+    return super match
 
   destroy: ->
     atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
