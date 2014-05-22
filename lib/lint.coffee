@@ -1,8 +1,6 @@
-path = require 'path'
-
 module.exports =
   configDefaults:
-    cpplintExecutablePath: path.join __dirname, '..', 'node_modules', 'node-cpplint', 'bin'
+    cpplintExecutablePath: null
 
   activate: ->
     console.log 'activate linter-cpplint'

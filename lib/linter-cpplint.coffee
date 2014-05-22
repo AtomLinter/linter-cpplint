@@ -5,7 +5,7 @@ path = require 'path'
 class LinterCpplint extends Linter
   # The syntax that the linter handles. May be a string or
   # list/tuple of strings. Names should be all lowercase.
-  @syntax: ['source.c++', 'source.c']
+  @syntax: ['source.c++']
 
   # A string, list, tuple or callable that returns a string, list or tuple,
   # containing the command line (with arguments) used to lint.
@@ -21,17 +21,10 @@ class LinterCpplint extends Linter
 
   isNodeExecutable: yes
 
+  executablePath: path.join __dirname, '..', 'node_modules', 'node-cpplint', 'bin'
+
   constructor: (editor) ->
     super(editor)
-
-    atom.config.observe 'linter-cpplint.cpplintExecutablePath', @formatShellCmd
-
-
-  formatShellCmd: =>
-    # TODO: Fix up atom.config
-    cpplintExecutablePath = path.join __dirname, '..', 'node_modules', 'node-cpplint', 'bin' #atom.config.get 'linter-cpplint.cpplintExecutablePath'
-    console.log "cpplintExecutablePath", cpplintExecutablePath
-    @executablePath = "#{cpplintExecutablePath}"
 
   # Private: cpplint outputs line 0 for some errors. This needs to be changed to
   # line 1 otherwise it will break.
