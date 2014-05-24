@@ -1,4 +1,4 @@
-# linter-cpplint [![Dependency Status](https://david-dm.org/Nathan-Smith/linter-cpplint.svg)](https://david-dm.org/Nathan-Smith/linter-cpplint) [![devDependency Status](https://david-dm.org/Nathan-Smith/linter-cpplint/dev-status.svg)](https://david-dm.org/Nathan-Smith/linter-cpplint#info=devDependencies)
+# linter-cpplint [![GitHub version](https://badge.fury.io/gh/Nathan-Smith%2Flinter-cpplint.svg)](http://badge.fury.io/gh/Nathan-Smith%2Flinter-cpplint) [![Dependency Status](https://david-dm.org/Nathan-Smith/linter-cpplint.svg)](https://david-dm.org/Nathan-Smith/linter-cpplint) [![devDependency Status](https://david-dm.org/Nathan-Smith/linter-cpplint/dev-status.svg)](https://david-dm.org/Nathan-Smith/linter-cpplint#info=devDependencies)
 
 This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides an interface to [cpplint](http://google-styleguide.googlecode.com/svn/trunk/cpplint/). It will be used with files that have the “C++” syntax.
 
