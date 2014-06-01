@@ -5,7 +5,7 @@
   "version": "0.0.5",
   "description": "Linter plugin for c++, using cpplint.",
   "activationEvents": [],
-  "repository": "https://github.com/Nathan-Smith/linter-cpplint",
+  "repository": "https://github.com/AtomLinter/linter-cpplint",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
