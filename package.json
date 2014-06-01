@@ -2,7 +2,7 @@
   "name": "linter-cpplint",
   "linter-package": true,
   "main": "./lib/init",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Linter plugin for c++, using cpplint.",
   "activationEvents": [],
   "repository": "https://github.com/AtomLinter/linter-cpplint",
