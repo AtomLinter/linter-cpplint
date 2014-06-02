@@ -7,14 +7,10 @@ class LinterCpplint extends Linter
   # list/tuple of strings. Names should be all lowercase.
   @syntax: ['source.c++']
 
-  # A string, list, tuple or callable that returns a string, list or tuple,
-  # containing the command line (with arguments) used to lint.
-  cmd: 'cpplint.py --extensions=c++ 2>&1'
-
   linterName: 'cpplint'
 
   # A regex pattern used to extract information from the executable's output.
-  regex: '.+:(?<line>\\d+):\\s+(?<message>.*)\\s+\\[.+\\]\\s+\\[\\d\\]$'
+  regex: '.+:(?<line>\\d+):\\s+(?<message>.*).+\\[\\d\\]$'
   regexFlags: 'm'
 
   defaultLevel: 'warning'
@@ -26,6 +22,15 @@ class LinterCpplint extends Linter
 
     atom.config.observe 'linter-cpplint.cpplintExecutablePath', =>
       @executablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
+
+    @cmd = 'cpplint.py --extensions=c++'
+
+    atom.config.observe 'linter-cpplint.filters', =>
+      filters = atom.config.get 'linter-cpplint.filters'
+      if filters.length == 0
+        @cmd = 'cpplint.py --extensions=c++ 2>&1'
+      else
+        @cmd = 'cpplint.py --extensions=c++ --filter=' + filters + ' 2>&1'
 
   destroy: ->
     atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
