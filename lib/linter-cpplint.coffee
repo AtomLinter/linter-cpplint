@@ -9,19 +9,18 @@ class LinterCpplint extends Linter
 
   # A string, list, tuple or callable that returns a string, list or tuple,
   # containing the command line (with arguments) used to lint.
-  cmd: 'cpplint --extensions=c++ --reporter=plain-text'
+  cmd: 'cpplint.py --extensions=c++ 2>&1'
 
   linterName: 'cpplint'
 
   # A regex pattern used to extract information from the executable's output.
-
-  regex: '[^:]+:(?<line>\\d+):\\s+(?<message>.*)'
+  regex: '.+:(?<line>\\d+):\\s+(?<message>.*)\\s+\\[.+\\]\\s+\\[\\d\\]$'
+  regexFlags: 'm'
 
   defaultLevel: 'warning'
 
-  isNodeExecutable: yes
-
-  executablePath: path.join __dirname, '..', 'node_modules', 'node-cpplint', 'bin'
+  isNodeExecutable: no
+  executablePath: path.join __dirname, '..', 'bin'
 
   constructor: (editor) ->
     super(editor)
