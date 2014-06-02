@@ -23,8 +23,6 @@ class LinterCpplint extends Linter
     atom.config.observe 'linter-cpplint.cpplintExecutablePath', =>
       @executablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
 
-    @cmd = 'cpplint.py --extensions=c++'
-
     atom.config.observe 'linter-cpplint.filters', =>
       filters = atom.config.get 'linter-cpplint.filters'
       if filters.length == 0
@@ -33,6 +31,7 @@ class LinterCpplint extends Linter
         @cmd = 'cpplint.py --extensions=c++ --filter=' + filters + ' 2>&1'
 
   destroy: ->
+    atom.config.unobserve 'linter-cpplint.filters'
     atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
 
   # Private: cpplint outputs line 0 for some errors. This needs to be changed to
