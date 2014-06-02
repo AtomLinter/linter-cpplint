@@ -20,18 +20,20 @@ class LinterCpplint extends Linter
   defaultLevel: 'warning'
 
   isNodeExecutable: no
-  executablePath: path.join __dirname, '..', 'bin'
 
   constructor: (editor) ->
     super(editor)
+
+    atom.config.observe 'linter-cpplint.cpplintExecutablePath', =>
+      @executablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
+
+  destroy: ->
+    atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
 
   # Private: cpplint outputs line 0 for some errors. This needs to be changed to
   # line 1 otherwise it will break.
   createMessage: (match) ->
     match.line = if match.line > 0 then match.line else 1
     return super match
-
-  destroy: ->
-    atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
 
 module.exports = LinterCpplint
