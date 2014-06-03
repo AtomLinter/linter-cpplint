@@ -10,7 +10,5 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-    "node-cpplint": "0.2.0"
-  }
+  "dependencies": {}
 }

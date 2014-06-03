@@ -7,32 +7,37 @@ class LinterCpplint extends Linter
   # list/tuple of strings. Names should be all lowercase.
   @syntax: ['source.c++']
 
-  # A string, list, tuple or callable that returns a string, list or tuple,
-  # containing the command line (with arguments) used to lint.
-  cmd: 'cpplint --extensions=c++ --reporter=plain-text'
-
   linterName: 'cpplint'
 
   # A regex pattern used to extract information from the executable's output.
-
-  regex: '[^:]+:(?<line>\\d+):\\s+(?<message>.*)'
+  regex: '.+:(?<line>\\d+):\\s+(?<message>.*).+\\[\\d\\]$'
+  regexFlags: 'm'
 
   defaultLevel: 'warning'
 
-  isNodeExecutable: yes
-
-  executablePath: path.join __dirname, '..', 'node_modules', 'node-cpplint', 'bin'
+  isNodeExecutable: no
 
   constructor: (editor) ->
     super(editor)
+
+    atom.config.observe 'linter-cpplint.cpplintExecutablePath', =>
+      @executablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
+
+    atom.config.observe 'linter-cpplint.filters', =>
+      filters = atom.config.get 'linter-cpplint.filters'
+      if filters.length == 0
+        @cmd = 'cpplint.py --extensions=c++ 2>&1'
+      else
+        @cmd = 'cpplint.py --extensions=c++ --filter=' + filters + ' 2>&1'
+
+  destroy: ->
+    atom.config.unobserve 'linter-cpplint.filters'
+    atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
 
   # Private: cpplint outputs line 0 for some errors. This needs to be changed to
   # line 1 otherwise it will break.
   createMessage: (match) ->
     match.line = if match.line > 0 then match.line else 1
     return super match
-
-  destroy: ->
-    atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
 
 module.exports = LinterCpplint
