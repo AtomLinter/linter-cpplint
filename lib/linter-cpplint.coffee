@@ -17,6 +17,8 @@ class LinterCpplint extends Linter
 
   isNodeExecutable: no
 
+  errorStream: 'stderr'
+
   constructor: (editor) ->
     super(editor)
 
@@ -26,9 +28,9 @@ class LinterCpplint extends Linter
     atom.config.observe 'linter-cpplint.filters', =>
       filters = atom.config.get 'linter-cpplint.filters'
       if filters.length == 0
-        @cmd = 'cpplint.py --extensions=c++ 2>&1'
+        @cmd = 'cpplint.py --extensions=c++'
       else
-        @cmd = 'cpplint.py --extensions=c++ --filter=' + filters + ' 2>&1'
+        @cmd = 'cpplint.py --extensions=c++ --filter=' + filters
 
   destroy: ->
     atom.config.unobserve 'linter-cpplint.filters'
