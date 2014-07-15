@@ -41,7 +41,7 @@ Thank you for helping out!
 - [linter-coffeelint](https://atom.io/packages/linter-coffeelint), for CoffeeScript, using `coffeelint`
 - [linter-csslint](https://atom.io/packages/linter-csslint), for CSS, using `csslint`
 - [linter-rubocop](https://atom.io/packages/linter-rubocop), for Ruby, using `rubocop`
-- [linter-tslint](https://atom.io/packages/linter-tslint), for JavaScript, using `tslint`
+- [linter-tslint](https://atom.io/packages/linter-tslint), for TypeScript, using `tslint`
 - [linter-xmllint](https://atom.io/packages/linter-xmllint), for XML, using `xmllint`
 - [linter-shellcheck](https://atom.io/packages/linter-shellcheck), for Bash, using `shellcheck`.
 
