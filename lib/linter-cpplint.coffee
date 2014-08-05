@@ -26,14 +26,25 @@ class LinterCpplint extends Linter
       @executablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
 
     atom.config.observe 'linter-cpplint.filters', =>
-      filters = atom.config.get 'linter-cpplint.filters'
-      if filters.length == 0
-        @cmd = 'cpplint.py --extensions=c++'
-      else
-        @cmd = 'cpplint.py --extensions=c++ --filter=' + filters
+      @updateCommand()
+
+    atom.config.observe 'linter-cpplint.extensions', =>
+      @updateCommand()
+
+  updateCommand: ->
+    filters = atom.config.get 'linter-cpplint.filters'
+    extensions = atom.config.get 'linter-cpplint.extensions'
+    cmd = "cpplint.py"
+    if filters
+      cmd = "#{cmd} --filter=#{filters}"
+    if extensions
+      cmd = "#{cmd} --extensions=#{extensions}"
+    @cmd = cmd
+
 
   destroy: ->
     atom.config.unobserve 'linter-cpplint.filters'
+    atom.config.unobserve 'linter-cpplint.extensions'
     atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
 
   # Private: cpplint outputs line 0 for some errors. This needs to be changed to
