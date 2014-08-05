@@ -3,6 +3,7 @@ path = require 'path'
 module.exports =
   configDefaults:
     filters: ''
+    extensions: ''
     cpplintExecutablePath: path.join __dirname, '..', 'bin'
 
   activate: ->
