@@ -5,7 +5,7 @@ path = require 'path'
 class LinterCpplint extends Linter
   # The syntax that the linter handles. May be a string or
   # list/tuple of strings. Names should be all lowercase.
-  @syntax: ['source.c++']
+  @syntax: ['source.c++', 'source.cpp']
 
   linterName: 'cpplint'
 
