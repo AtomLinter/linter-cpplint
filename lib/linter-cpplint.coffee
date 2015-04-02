@@ -1,3 +1,4 @@
+{CompositeDisposable} = require 'atom'
 linterPath = atom.packages.getLoadedPackage("linter").path
 Linter = require "#{linterPath}/lib/linter"
 path = require 'path'
@@ -5,7 +6,7 @@ path = require 'path'
 class LinterCpplint extends Linter
   # The syntax that the linter handles. May be a string or
   # list/tuple of strings. Names should be all lowercase.
-  @syntax: ['source.c++']
+  @syntax: ['source.cpp']
 
   linterName: 'cpplint'
 
@@ -22,13 +23,15 @@ class LinterCpplint extends Linter
   constructor: (editor) ->
     super(editor)
 
-    atom.config.observe 'linter-cpplint.cpplintExecutablePath', =>
+    @subscriptions = new CompositeDisposable
+
+    @subscriptions.add atom.config.observe 'linter-cpplint.cpplintExecutablePath', =>
       @executablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
 
-    atom.config.observe 'linter-cpplint.filters', =>
+    @subscriptions.add atom.config.observe 'linter-cpplint.filters', =>
       @updateCommand()
 
-    atom.config.observe 'linter-cpplint.extensions', =>
+    @subscriptions.add atom.config.observe 'linter-cpplint.extensions', =>
       @updateCommand()
 
   updateCommand: ->
@@ -43,9 +46,7 @@ class LinterCpplint extends Linter
 
 
   destroy: ->
-    atom.config.unobserve 'linter-cpplint.filters'
-    atom.config.unobserve 'linter-cpplint.extensions'
-    atom.config.unobserve 'linter-cpplint.cpplintExecutablePath'
+    @subscriptions.dispose()
 
   # Private: cpplint outputs line 0 for some errors. This needs to be changed to
   # line 1 otherwise it will break.
