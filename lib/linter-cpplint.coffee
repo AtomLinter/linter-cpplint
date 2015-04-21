@@ -37,13 +37,15 @@ class LinterCpplint extends Linter
   updateCommand: ->
     filters = atom.config.get 'linter-cpplint.filters'
     extensions = atom.config.get 'linter-cpplint.extensions'
+    options = atom.config.get 'linter-cpplint.options'
     cmd = "cpplint.py"
     if filters
       cmd = "#{cmd} --filter=#{filters}"
     if extensions
       cmd = "#{cmd} --extensions=#{extensions}"
+    if options
+      cmd = "#{cmd} #{options}"
     @cmd = cmd
-
 
   destroy: ->
     @subscriptions.dispose()
