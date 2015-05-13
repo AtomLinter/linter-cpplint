@@ -2,6 +2,9 @@ path = require 'path'
 
 module.exports =
   config:
+    lineLength:
+      type: 'integer'
+      default: '80'
     filters:
       type: 'string'
       default: ''
