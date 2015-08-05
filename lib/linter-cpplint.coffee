@@ -28,6 +28,9 @@ class LinterCpplint extends Linter
     @subscriptions.add atom.config.observe 'linter-cpplint.cpplintExecutablePath', =>
       @executablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
 
+    @subscriptions.add atom.config.observe 'linter-cpplint.lineLength', =>
+      @updateCommand()
+
     @subscriptions.add atom.config.observe 'linter-cpplint.filters', =>
       @updateCommand()
 
@@ -35,9 +38,12 @@ class LinterCpplint extends Linter
       @updateCommand()
 
   updateCommand: ->
+    lineLength = atom.config.get 'linter-cpplint.lineLength'
     filters = atom.config.get 'linter-cpplint.filters'
     extensions = atom.config.get 'linter-cpplint.extensions'
     cmd = "cpplint.py"
+    if lineLength
+      cmd = "#{cmd} --linelength=#{lineLength}"
     if filters
       cmd = "#{cmd} --filter=#{filters}"
     if extensions
