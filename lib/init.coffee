@@ -8,6 +8,9 @@ module.exports =
     filters:
       type: 'string'
       default: ''
+    options:
+      type: 'string'
+      default: ''
     extensions:
       type: 'string'
       default: 'c++,cc,cpp,cu,cuh,h,hpp'
