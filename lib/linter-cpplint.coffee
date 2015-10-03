@@ -1,63 +1,72 @@
 {CompositeDisposable} = require 'atom'
-linterPath = atom.packages.getLoadedPackage("linter").path
-Linter = require "#{linterPath}/lib/linter"
-path = require 'path'
 
-class LinterCpplint extends Linter
-  # The syntax that the linter handles. May be a string or
-  # list/tuple of strings. Names should be all lowercase.
-  @syntax: ['source.cpp']
+class LinterCpplint
+  @cpplintPath: ''
+  @parameters: []
 
-  linterName: 'cpplint'
-
-  # A regex pattern used to extract information from the executable's output.
-  regex: '.+:(?<line>\\d+):\\s+(?<message>.*).+\\[\\d\\]$'
-  regexFlags: 'm'
-
-  defaultLevel: 'warning'
-
-  isNodeExecutable: no
-
-  errorStream: 'stderr'
-
-  constructor: (editor) ->
-    super(editor)
-
+  constructor: ->
     @subscriptions = new CompositeDisposable
 
-    @subscriptions.add atom.config.observe 'linter-cpplint.cpplintExecutablePath', =>
-      @executablePath = atom.config.get 'linter-cpplint.cpplintExecutablePath'
+    @subscriptions.add atom.config.observe 'linter-cpplint.executablePath',
+    (executablePath) =>
+      @cpplintPath = executablePath
 
     @subscriptions.add atom.config.observe 'linter-cpplint.lineLength', =>
-      @updateCommand()
+      @updateParameters()
 
     @subscriptions.add atom.config.observe 'linter-cpplint.filters', =>
-      @updateCommand()
+      @updateParameters()
 
     @subscriptions.add atom.config.observe 'linter-cpplint.extensions', =>
-      @updateCommand()
+      @updateParameters()
 
-  updateCommand: ->
+  updateParameters: ->
     lineLength = atom.config.get 'linter-cpplint.lineLength'
     filters = atom.config.get 'linter-cpplint.filters'
     extensions = atom.config.get 'linter-cpplint.extensions'
-    cmd = "cpplint.py"
+    parameters = []
     if lineLength
-      cmd = "#{cmd} --linelength=#{lineLength}"
+      parameters.push('--linelength', lineLength)
     if filters
-      cmd = "#{cmd} --filter=#{filters}"
+      parameters.push('--filter', filters)
     if extensions
-      cmd = "#{cmd} --extensions=#{extensions}"
-    @cmd = cmd
-
+      parameters.push('--extensions', extensions)
+    @parameters = parameters
 
   destroy: ->
     @subscriptions.dispose()
 
-  # Private: cpplint outputs line 0 for some errors. This needs to be changed to
-  # line 1 otherwise it will break.
-  createMessage: (match) ->
-    match.line = if match.line > 0 then match.line else 1
-    return super match
+  lint: (textEditor) =>
+    helpers = require('atom-linter')
+    filePath = textEditor.getPath()
+    parameters = @parameters.slice()
+
+    # File path is the last parameters.
+    parameters.push(filePath)
+
+    return helpers
+        .exec(@cpplintPath, parameters, stream: 'stderr').then (result) ->
+      toReturn = []
+      regex = /.+:(\d+):(.+)\[\d+\]/g
+
+      while (match = regex.exec(result)) isnt null
+        line = parseInt(match[1]) or 0
+        message = match[2]
+
+        # cpplint line is 1-based. Line 0 is for copyright and header_guard.
+        line = Math.max(0, line - 1)
+
+        range = [
+          [line, 0]
+          [line, textEditor.getBuffer().lineLengthForRow(line)]
+        ]
+
+        toReturn.push({
+          type: 'Warning'
+          text: message
+          filePath: filePath
+          range: range
+        })
+      return toReturn
 
 module.exports = LinterCpplint

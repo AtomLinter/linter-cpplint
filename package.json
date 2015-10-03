@@ -1,14 +1,28 @@
 {
   "name": "linter-cpplint",
-  "linter-package": true,
   "main": "./lib/init",
   "version": "0.1.4",
   "description": "Linter plugin for c++, using cpplint.",
-  "activationCommands": [],
-  "repository": "https://github.com/AtomLinter/linter-cpplint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtomLinter/linter-cpplint"
+  },
   "license": "MIT",
   "engines": {
-    "atom": ">=0.175.0"
+    "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "dependencies": {
+    "atom-linter": "^2.0.5",
+    "atom-package-deps": "^2.0.1"
+  },
+  "packages-deps": [
+    "linter"
+  ]
 }
