@@ -37,6 +37,7 @@ module.exports =
     @subscriptions.dispose()
 
   provideLinter: ->
+    helpers = require('atom-linter')
     provider =
       name: 'cpplint'
       grammarScopes: ['source.cpp']
@@ -44,7 +45,6 @@ module.exports =
       # cpplint only lint file(s).
       lintOnFly: false
       lint: (textEditor) =>
-        helpers = require('atom-linter')
         filePath = textEditor.getPath()
         parameters = @parameters.slice()
 
