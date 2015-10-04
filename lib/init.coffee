@@ -17,7 +17,6 @@ module.exports =
 
   activate: ->
     require('atom-package-deps').install 'linter-cpplint'
-    console.log 'activate linter-cpplint'
 
   provideLinter: ->
     LinterCpplint = require './linter-cpplint.coffee'
