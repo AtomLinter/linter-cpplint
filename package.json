@@ -1,7 +1,7 @@
 {
   "name": "linter-cpplint",
   "main": "./lib/init",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "description": "Linter plugin for c++, using cpplint.",
   "repository": {
     "type": "git",
