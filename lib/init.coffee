@@ -17,7 +17,7 @@ module.exports =
       default: path.join __dirname, '..', 'bin', 'cpplint.py'
 
   activate: ->
-    require('atom-package-deps').install 'linter-cpplint'
+    require('atom-package-deps').install()
     @subscriptions = new CompositeDisposable
 
     @subscriptions.add atom.config.observe 'linter-cpplint.executablePath',
