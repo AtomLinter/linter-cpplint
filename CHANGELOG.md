@@ -1,9 +1,93 @@
-## v0.1.4
+# Change Log
 
-### New Features
-* Fix deprecation warnings and update cpplint  ([#4](https://github.com/AtomLinter/linter-cpplint/pull/4))
+## [1.0.1](https://github.com/AtomLinter/linter-cpplint/tree/1.0.1) (2015-12-30)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v1.0.0...1.0.1)
 
-## v0.1.3
+**Fixed bugs:**
 
-### New Features
-* Add extensions configuration option ([#4](https://github.com/AtomLinter/linter-cpplint/pull/11))
+- \[Windows\] Multiple cpplint.py opening. [\#6](https://github.com/AtomLinter/linter-cpplint/issues/6)
+
+**Closed issues:**
+
+- How to change line length? [\#22](https://github.com/AtomLinter/linter-cpplint/issues/22)
+- False "build/header\_guard" positive due to mismatch in project root directory [\#20](https://github.com/AtomLinter/linter-cpplint/issues/20)
+- Does not work in windows [\#14](https://github.com/AtomLinter/linter-cpplint/issues/14)
+- cpplint not running on Atom 0.149 and 0.150 [\#7](https://github.com/AtomLinter/linter-cpplint/issues/7)
+- Standard library includes trigger fail for .h files [\#5](https://github.com/AtomLinter/linter-cpplint/issues/5)
+
+**Merged pull requests:**
+
+- atom-linter@4.2.0 untested ⚠️ [\#29](https://github.com/AtomLinter/linter-cpplint/pull/29) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update all dependencies 🌴 [\#26](https://github.com/AtomLinter/linter-cpplint/pull/26) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v1.0.0](https://github.com/AtomLinter/linter-cpplint/tree/v1.0.0) (2015-11-04)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.1.4...v1.0.0)
+
+**Implemented enhancements:**
+
+- - new linter api. [\#23](https://github.com/AtomLinter/linter-cpplint/pull/23) ([imironhead](https://github.com/imironhead))
+
+**Closed issues:**
+
+- Cannot run on Mac OS [\#24](https://github.com/AtomLinter/linter-cpplint/issues/24)
+- linter-cpplint is not linting [\#21](https://github.com/AtomLinter/linter-cpplint/issues/21)
+- LinterCpplint.Linter is deprecated. [\#19](https://github.com/AtomLinter/linter-cpplint/issues/19)
+- Object.activate is deprecated. [\#18](https://github.com/AtomLinter/linter-cpplint/issues/18)
+- LinterClang.Linter is deprecated. [\#17](https://github.com/AtomLinter/linter-cpplint/issues/17)
+- Upcoming linter changes [\#15](https://github.com/AtomLinter/linter-cpplint/issues/15)
+
+**Merged pull requests:**
+
+- Add --linelength option support [\#13](https://github.com/AtomLinter/linter-cpplint/pull/13) ([sgleizes](https://github.com/sgleizes))
+
+## [v0.1.4](https://github.com/AtomLinter/linter-cpplint/tree/v0.1.4) (2015-04-03)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.1.3...v0.1.4)
+
+**Merged pull requests:**
+
+- Fix deprecation warnings and update cpplint [\#11](https://github.com/AtomLinter/linter-cpplint/pull/11) ([Ingramz](https://github.com/Ingramz))
+- Fixed typo in tslint link description [\#3](https://github.com/AtomLinter/linter-cpplint/pull/3) ([jordanbtucker](https://github.com/jordanbtucker))
+
+## [v0.1.3](https://github.com/AtomLinter/linter-cpplint/tree/v0.1.3) (2014-08-06)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.1.2...v0.1.3)
+
+**Closed issues:**
+
+- Too many warnings [\#2](https://github.com/AtomLinter/linter-cpplint/issues/2)
+
+**Merged pull requests:**
+
+- Add extensions configuration option. [\#4](https://github.com/AtomLinter/linter-cpplint/pull/4) ([timikoy](https://github.com/timikoy))
+
+## [v0.1.2](https://github.com/AtomLinter/linter-cpplint/tree/v0.1.2) (2014-06-17)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.1.1...v0.1.2)
+
+## [v0.1.1](https://github.com/AtomLinter/linter-cpplint/tree/v0.1.1) (2014-06-05)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.1.0...v0.1.1)
+
+## [v0.1.0](https://github.com/AtomLinter/linter-cpplint/tree/v0.1.0) (2014-06-03)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.0.6...v0.1.0)
+
+**Implemented enhancements:**
+
+- Filters and tidy [\#1](https://github.com/AtomLinter/linter-cpplint/pull/1) ([Omegaice](https://github.com/Omegaice))
+
+## [v0.0.6](https://github.com/AtomLinter/linter-cpplint/tree/v0.0.6) (2014-06-01)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.0.5...v0.0.6)
+
+## [v0.0.5](https://github.com/AtomLinter/linter-cpplint/tree/v0.0.5) (2014-05-25)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.0.4...v0.0.5)
+
+## [v0.0.4](https://github.com/AtomLinter/linter-cpplint/tree/v0.0.4) (2014-05-24)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.0.3...v0.0.4)
+
+## [v0.0.3](https://github.com/AtomLinter/linter-cpplint/tree/v0.0.3) (2014-05-22)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.0.2...v0.0.3)
+
+## [v0.0.2](https://github.com/AtomLinter/linter-cpplint/tree/v0.0.2) (2014-05-22)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v0.0.1...v0.0.2)
+
+## [v0.0.1](https://github.com/AtomLinter/linter-cpplint/tree/v0.0.1) (2014-05-22)
+
+
+\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
