@@ -17,7 +17,8 @@ module.exports =
       default: path.join __dirname, '..', 'bin', 'cpplint.py'
 
   activate: ->
-    require('atom-package-deps').install()
+    require('atom-package-deps').install('linter-cpplint')
+
     @subscriptions = new CompositeDisposable
 
     @subscriptions.add atom.config.observe 'linter-cpplint.executablePath',
@@ -42,7 +43,7 @@ module.exports =
       name: 'cpplint'
       grammarScopes: ['source.cpp']
       scope: 'file'
-      # cpplint only lint file(s).
+      # cpplint only lints file(s).
       lintOnFly: false
       lint: (textEditor) =>
         filePath = textEditor.getPath()
@@ -59,16 +60,13 @@ module.exports =
           regex = /.+:(\d+):(.+)\[\d+\]/g
 
           while (match = regex.exec(result)) isnt null
-            line = parseInt(match[1]) or 1
             message = match[2]
 
             # cpplint line is 1-based. Line 0 is for copyright and header_guard.
+            line = parseInt(match[1]) or 1
             line = Math.max(0, line - 1)
 
-            range = [
-              [line, 0]
-              [line, textEditor.getBuffer().lineLengthForRow(line)]
-            ]
+            range = helpers.rangeFromLineNumber(textEditor, line)
 
             toReturn.push({
               type: 'Warning'
