@@ -51,8 +51,10 @@ module.exports =
         # File path is the last parameter.
         parameters.push(filePath)
 
+        execOpt = {stream: 'stderr', allowEmptyStderr: true}
+
         return helpers
-            .exec(@cpplintPath, parameters, stream: 'stderr').then (result) ->
+            .exec(@cpplintPath, parameters, execOpt).then (result) ->
           toReturn = []
           regex = /.+:(\d+):(.+)\[\d+\]/g
 
