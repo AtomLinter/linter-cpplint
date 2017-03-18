@@ -14,7 +14,7 @@ module.exports =
       default: 'c++,cc,cpp,cu,cuh,h,hpp'
     executablePath:
       type: 'string'
-      default: path.join __dirname, '..', 'bin', 'cpplint.py'
+      default: 'cpplint'
 
   activate: ->
     require('atom-package-deps').install('linter-cpplint')
