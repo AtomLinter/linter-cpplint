@@ -66,7 +66,7 @@ module.exports =
             line = parseInt(match[1]) or 1
             line = Math.max(0, line - 1)
 
-            range = helpers.rangeFromLineNumber(textEditor, line)
+            range = helpers.generateRange(textEditor, line)
 
             toReturn.push({
               type: 'Warning'
