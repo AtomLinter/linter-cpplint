@@ -2,7 +2,7 @@
   "name": "linter-cpplint",
   "main": "./lib/init.coffee",
   "private": true,
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Linter plugin for c++, using cpplint.",
   "repository": {
     "type": "git",

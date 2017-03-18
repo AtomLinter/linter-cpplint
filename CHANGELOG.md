@@ -1,5 +1,29 @@
 # Change Log
 
+## [v2.0.0](https://github.com/AtomLinter/linter-cpplint/tree/v2.0.0) (2017-03-18)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v1.0.1...v2.0.0)
+
+**Implemented enhancements:**
+
+- unify with cpplint fork on pypi [\#10](https://github.com/AtomLinter/linter-cpplint/issues/10)
+- Set the CWD to the dir of the file [\#67](https://github.com/AtomLinter/linter-cpplint/pull/67) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update atom-linter to the latest version 🚀 [\#64](https://github.com/AtomLinter/linter-cpplint/pull/64) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+- Update atom-linter to version 8.0.0 🚀 [\#59](https://github.com/AtomLinter/linter-cpplint/pull/59) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update atom-linter to version 5.0.1 🚀 [\#51](https://github.com/AtomLinter/linter-cpplint/pull/51) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-linter@4.6.1 untested ⚠️ [\#47](https://github.com/AtomLinter/linter-cpplint/pull/47) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update atom-package-deps to version 4.0.1 🚀 [\#44](https://github.com/AtomLinter/linter-cpplint/pull/44) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-linter@4.5.0 untested ⚠️ [\#42](https://github.com/AtomLinter/linter-cpplint/pull/42) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-package-deps@3.0.8 untested ⚠️ [\#40](https://github.com/AtomLinter/linter-cpplint/pull/40) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-linter@4.4.0 untested ⚠️ [\#39](https://github.com/AtomLinter/linter-cpplint/pull/39) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Force EOL to be LF [\#33](https://github.com/AtomLinter/linter-cpplint/pull/33) ([Arcanemagus](https://github.com/Arcanemagus))
+- atom-linter@4.3.1 untested ⚠️ [\#32](https://github.com/AtomLinter/linter-cpplint/pull/32) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-linter@4.3.0 untested ⚠️ [\#31](https://github.com/AtomLinter/linter-cpplint/pull/31) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- atom-package-deps@3.0.7 untested ⚠️ [\#30](https://github.com/AtomLinter/linter-cpplint/pull/30) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Fixed bugs:**
+
+- Remove the bundled cpplint [\#66](https://github.com/AtomLinter/linter-cpplint/pull/66) ([Arcanemagus](https://github.com/Arcanemagus))
+
 ## [v1.0.1](https://github.com/AtomLinter/linter-cpplint/tree/v1.0.1) (2015-12-30)
 [Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v1.0.0...v1.0.1)
 
