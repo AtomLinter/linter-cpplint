@@ -52,7 +52,10 @@ module.exports =
         # File path is the last parameter.
         parameters.push(filePath)
 
-        execOpt = {stream: 'stderr', allowEmptyStderr: true}
+        execOpt =
+          stream: 'stderr'
+          allowEmptyStderr: true
+          cwd: dirname(filePath)
 
         return helpers
             .exec(@cpplintPath, parameters, execOpt).then (result) ->
