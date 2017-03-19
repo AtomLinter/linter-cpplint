@@ -1,5 +1,14 @@
 # Change Log
 
+## [v2.0.1](https://github.com/AtomLinter/linter-cpplint/tree/v2.0.1) (2017-03-19)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v2.0.0...v2.0.1)
+
+**Fixed bugs:**
+
+- Failed at checking. [\#65](https://github.com/AtomLinter/linter-cpplint/issues/65)
+- Fix defining the package dependencies [\#69](https://github.com/AtomLinter/linter-cpplint/pull/69) ([Arcanemagus](https://github.com/Arcanemagus))
+- Use dirname properly [\#68](https://github.com/AtomLinter/linter-cpplint/pull/68) ([Arcanemagus](https://github.com/Arcanemagus))
+
 ## [v2.0.0](https://github.com/AtomLinter/linter-cpplint/tree/v2.0.0) (2017-03-18)
 [Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v1.0.1...v2.0.0)
 
