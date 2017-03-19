@@ -55,7 +55,7 @@ module.exports =
         execOpt =
           stream: 'stderr'
           allowEmptyStderr: true
-          cwd: dirname(filePath)
+          cwd: path.dirname(filePath)
 
         return helpers
             .exec(@cpplintPath, parameters, execOpt).then (result) ->
