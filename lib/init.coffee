@@ -12,6 +12,9 @@ module.exports =
     extensions:
       type: 'string'
       default: 'c++,cc,cpp,cu,cuh,h,hpp'
+    languages:
+      type: 'array'
+      default: ['cpp','c']
     executablePath:
       type: 'string'
       default: 'cpplint'
@@ -34,6 +37,9 @@ module.exports =
     @subscriptions.add atom.config.observe 'linter-cpplint.extensions', =>
       @updateParameters()
 
+    @subscriptions.add atom.config.observe 'linter-cpplint.languages', =>
+      @updateGrammarScopes()
+
   deactivate: ->
     @subscriptions.dispose()
 
@@ -41,7 +47,7 @@ module.exports =
     helpers = require('atom-linter')
     provider =
       name: 'cpplint'
-      grammarScopes: ['source.cpp']
+      grammarScopes: @grammarScopes
       scope: 'file'
       # cpplint only lints file(s).
       lintOnFly: false
@@ -91,3 +97,9 @@ module.exports =
     if extensions
       parameters.push('--extensions', extensions)
     @parameters = parameters
+  updateGrammarScopes: ->
+    languages = atom.config.get 'linter-cpplint.languages'
+    scopes = []
+    for name in languages
+      scopes.push('source.' + name);
+    @grammarScopes = scopes
