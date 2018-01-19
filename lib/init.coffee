@@ -11,7 +11,7 @@ module.exports =
       default: ''
     extensions:
       type: 'string'
-      default: 'c++,cc,cpp,cu,cuh,h,hpp'
+      default: 'c++,cc,cpp,cu,cuh,h,hpp,c'
     languages:
       type: 'array'
       default: ['cpp','c']
