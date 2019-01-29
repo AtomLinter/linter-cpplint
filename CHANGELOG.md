@@ -1,5 +1,18 @@
 # Change Log
 
+## [v2.1.0](https://github.com/AtomLinter/linter-cpplint/tree/v2.1.0) (2019-01-29)
+[Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v2.0.1...v2.1.0)
+
+**Implemented enhancements:**
+
+- Support v2 Linter API [\#79](https://github.com/AtomLinter/linter-cpplint/pull/79) ([vzamanillo](https://github.com/vzamanillo))
+- Update atom-package-deps to version 5.0.0 🚀 [\#77](https://github.com/AtomLinter/linter-cpplint/pull/77) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update atom-linter to version 10.0.0 🚀 [\#70](https://github.com/AtomLinter/linter-cpplint/pull/70) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+**Fixed bugs:**
+
+- Support v2 Linter API [\#78](https://github.com/AtomLinter/linter-cpplint/issues/78)
+
 ## [v2.0.1](https://github.com/AtomLinter/linter-cpplint/tree/v2.0.1) (2017-03-19)
 [Full Changelog](https://github.com/AtomLinter/linter-cpplint/compare/v2.0.0...v2.0.1)
 
@@ -16,7 +29,7 @@
 
 - unify with cpplint fork on pypi [\#10](https://github.com/AtomLinter/linter-cpplint/issues/10)
 - Set the CWD to the dir of the file [\#67](https://github.com/AtomLinter/linter-cpplint/pull/67) ([Arcanemagus](https://github.com/Arcanemagus))
-- Update atom-linter to the latest version 🚀 [\#64](https://github.com/AtomLinter/linter-cpplint/pull/64) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+- Update atom-linter to version 9.0.0 🚀 [\#64](https://github.com/AtomLinter/linter-cpplint/pull/64) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 - Update atom-linter to version 8.0.0 🚀 [\#59](https://github.com/AtomLinter/linter-cpplint/pull/59) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 - Update atom-linter to version 5.0.1 🚀 [\#51](https://github.com/AtomLinter/linter-cpplint/pull/51) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 - atom-linter@4.6.1 untested ⚠️ [\#47](https://github.com/AtomLinter/linter-cpplint/pull/47) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
