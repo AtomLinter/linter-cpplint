@@ -44,7 +44,7 @@ module.exports =
       grammarScopes: ['source.cpp']
       scope: 'file'
       # cpplint only lints file(s).
-      lintOnFly: false
+      lintsOnChange: false
       lint: (textEditor) =>
         filePath = textEditor.getPath()
         parameters = @parameters.slice()
@@ -72,10 +72,11 @@ module.exports =
             range = helpers.generateRange(textEditor, line)
 
             toReturn.push({
-              type: 'Warning'
-              text: message
-              filePath: filePath
-              range: range
+              severity: 'warning'
+              excerpt: message
+              location:
+                file: filePath
+                position: range
             })
           return toReturn
 
